@@ -9,9 +9,8 @@ void dibuixaPagina(){
   popStyle();
 }  
 void dibuixaBotoGuardar(){
-fill(100);
-  rect(marginH, marginV+ logoHeight+20, 100, 60);
-  fill(0);
-  textAlign(LEFT);
-  text("GUARDAR",marginH+5, marginV+ logoHeight+50);
+  bGuardar.display();
+}
+void dibuixabGuardar(){
+
 }

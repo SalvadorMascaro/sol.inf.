@@ -15,16 +15,10 @@ void dibuixaSideBar(){
 }
 
 void dibuixaBanner1(){
-  fill(100);
-  rect(2*marginH + logoWidth, marginV, banner1Width, banner1Height);
-  fill(0);
-  text("SUEÑOS RECIENTES", marginH + logoWidth + banner1Width/2, marginV + banner1Height/2);
+ bSRecientes.display();
 }
 void dibuixaBanner2(){
-  fill(100);
-  rect(2*marginH + logoWidth+ banner1Width +margeseparacio, marginV, banner1Width, banner1Height);
-  fill(0);
-  text("REGISTRO GRÁFICO", marginH + logoWidth + banner1Width/2 +banner1Width+margeseparacio, marginV + banner1Height/2);
+ bRGrafico.display();
 }
 void dibuixaBanner3(){
   fill(100);
