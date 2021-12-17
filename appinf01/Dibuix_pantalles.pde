@@ -1,12 +1,17 @@
-void dibuixaPantalla01(){
- dibuixaZonaLogo();
+void dibuixaPantalla01() {
+  dibuixaZonaLogo();
   dibuixaBanner1();
   dibuixaBanner2();
   dibuixaBanner3();
   dibuixaCreu();
 }
-void dibuixaPantalla02(){
- dibuixaZonaLogo();
+void dibuixaPantalla02() {
+  dibuixaZonaLogo();
   dibuixaPagina();
   dibuixaBotoGuardar();
+}
+
+void dibuixaPantalla03(){
+   dibuixaZonaLogo();
+  dibuixaGrafic();
 }
