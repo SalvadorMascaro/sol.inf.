@@ -7,7 +7,7 @@ void setup() {
   //size(1920, 1080);      // Pantalla HD
   noStroke();              // Sense bordes
   textAlign(CENTER);       // Alineació del text
-  textSize(18);            // Mida del text....
+  textSize(18);        
   setGUI();
   loadMedia();
 }
