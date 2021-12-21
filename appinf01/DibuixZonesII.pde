@@ -11,3 +11,6 @@ void dibuixaPagina() {
 void dibuixaBotoGuardar() {
   bGuardar.display();
 }
+void dibuixaInserirDream(){
+  textDream.display();
+}

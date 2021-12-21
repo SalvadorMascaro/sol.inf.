@@ -1,6 +1,8 @@
 // Configuració dels Elements de la GUI
 // Botons, Desplegables, 
 
+TextField textDream;
+
 // Botons del Menú Principal
 Button bGuardar, bSRecientes, bRGrafico, bBElementos;
 // Dimensions dels botons
@@ -9,6 +11,7 @@ int buttonH1= 60, buttonW1 =320;
 // Creació dels elements de la GUI
 void setGUI() {
   initButtons();
+  initTextField();
 }
 
 // Creació dels botons de la GUI
@@ -22,4 +25,8 @@ void initButtons() {
 // Activar els botons del menú
 void enableButtons() {
   bGuardar.setEnabled(true);
+}
+
+void initTextField(){
+textDream= new TextField(200, 200, 200, 30);
 }

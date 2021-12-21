@@ -7,11 +7,11 @@ void dibuixaPantalla01() {
 }
 void dibuixaPantalla02() {
   dibuixaZonaLogo();
-  dibuixaPagina();
   dibuixaBotoGuardar();
+  dibuixaInserirDream();
 }
 
 void dibuixaPantalla03(){
    dibuixaZonaLogo();
-  dibuixaGrafic();
+   dibuixaGrafic();
 }
