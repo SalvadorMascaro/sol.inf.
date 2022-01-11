@@ -35,7 +35,7 @@ void dibuixaBanner3() {
 //}
 void dibuixaCreu() {
   //pushStyle();
-  image(imgAfegir,W/2-15, H-190, 50, 50);
   text("añadir sueño", W/2, H-130);
  // popStyle();
+ ib.display();
 }

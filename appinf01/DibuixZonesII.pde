@@ -6,11 +6,21 @@ void dibuixaPagina() {
   rect(W/2, H/2, pageWidth, pageHeight);
   fill(0);
   text("somni escrit", W/2, H/2); 
-  popStyle();
-}
-void dibuixaBotoGuardar() {
-  bGuardar.display();
+  popStyle();bGuardar.display();
 }
 void dibuixaInserirDream(){
-  textDream.display();
+   fill(0); textSize(48); textAlign(LEFT);
+   text("Text Area", 100, 60);
+   
+   // Dibuixa l'àrea de text
+   areaText.display();
+}
+void dibuixabGuardar(){
+bGuardar.display();
+}
+void dibuixaCalendari(){
+ bFecha.display();
+ if(viewCalendar){
+   c.display();
+ }
 }

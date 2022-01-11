@@ -7,8 +7,9 @@ void dibuixaPantalla01() {
 }
 void dibuixaPantalla02() {
   dibuixaZonaLogo();
-  dibuixaBotoGuardar();
+  dibuixabGuardar();
   dibuixaInserirDream();
+  dibuixaCalendari();
 }
 
 void dibuixaPantalla03(){
