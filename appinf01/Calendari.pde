@@ -177,7 +177,7 @@ class Calendari {
     
     if(dateSelected){
       String dateText = this.selectedDay+"/"+this.selectedMonth+"/"+this.selectedYear;
-      fill(0); textSize(24); textAlign(RIGHT);
+      fill(0); textSize(16); textAlign(RIGHT);
       text(dateText, x+w, y - 30);
     }
   }

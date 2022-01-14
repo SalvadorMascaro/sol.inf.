@@ -10,6 +10,8 @@ void dibuixaPantalla02() {
   dibuixabGuardar();
   dibuixaInserirDream();
   dibuixaCalendari();
+  dibuixaSwitch();
+
 }
 
 void dibuixaPantalla03(){

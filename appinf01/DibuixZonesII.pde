@@ -24,3 +24,7 @@ void dibuixaCalendari(){
    c.display();
  }
 }
+
+void dibuixaSwitch(){
+  b1.display();
+}
