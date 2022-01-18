@@ -1,4 +1,4 @@
-// Component Camp de Text
+
 
 class TextArea {
   

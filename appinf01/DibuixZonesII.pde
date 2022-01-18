@@ -28,3 +28,6 @@ void dibuixaCalendari(){
 void dibuixaSwitch(){
   b1.display();
 }
+void dibuixaSelect(){
+s1.display();
+}

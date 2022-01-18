@@ -1,5 +1,7 @@
 
-enum Pantalla {INICI, SOMNI, CREDITS };
+enum Pantalla {
+  INICI, SOMNI, CREDITS
+};
 Pantalla pantalla = Pantalla.INICI;
 
 void setup() {
@@ -15,15 +17,21 @@ void setup() {
 void draw() {
 
   background(255);      
-  switch(pantalla){
-    case INICI: dibuixaPantalla01(); break;
-    case SOMNI: dibuixaPantalla02(); break;
-    case CREDITS: dibuixaPantalla03(); break;
+  switch(pantalla) {
+  case INICI: 
+    dibuixaPantalla01(); 
+    break;
+  case SOMNI: 
+    dibuixaPantalla02(); 
+    break;
+  case CREDITS: 
+    dibuixaPantalla03(); 
+    break;
   }
-  
-  
+
+
   updateCursor();
-  
+
   pushStyle();
   fill(0);
   textSize(36);
@@ -35,73 +43,90 @@ void draw() {
 
 
 void mousePressed() {
-  
-  if(pantalla==Pantalla.INICI && ib.mouseOverButton() && ib.enabled){
+
+  if (pantalla==Pantalla.INICI && ib.mouseOverButton() && ib.enabled) {
     pantalla = Pantalla.SOMNI;
   }
-  
-   textDream.isPressed();
-   if(pantalla==pantalla.SOMNI){
-     areaText.isPressed();
-     c.checkButtons();
-   }
-   if(pantalla==Pantalla.SOMNI && bFecha.mouseOverButton() && ib.enabled){
+
+  textDream.isPressed();
+  if (pantalla==pantalla.SOMNI) {
+    areaText.isPressed();
+    c.checkButtons();
+  }
+  if (pantalla==Pantalla.SOMNI && bFecha.mouseOverButton() && ib.enabled) {
     viewCalendar = !viewCalendar;
   }
-  
-  if(b1.mouseOverButton()){
+
+  if (b1.mouseOverButton()) {
     b1.toggle();
-    if(b1.enabled){
+    if (b1.enabled) {
       bgColor = color(255);
-    }
-    else {
+    } else {
       bgColor = color(0);
     }
   }
- 
+  if (s1.mouseOverSelect() && s1.enabled) {
+    if (!s1.collapsed) {
+      s1.update();      // Actualitzar valor
+      updateColor();    // Fer acció amb valor
+    }
+    s1.toggle();        // Plegar o desplegar
+  }
 }
 
 
 void keyPressed() {
-   textDream.keyPressed(key, (int)keyCode);
-   
-   if(key=='1'){
-     pantalla = Pantalla.INICI;
-   }
-   else if(key=='2'){
-     pantalla = Pantalla.SOMNI;
-   }
-   else if (key=='3'){
-     pantalla = Pantalla.CREDITS;
-   }
-    if(pantalla==pantalla.SOMNI){
+  textDream.keyPressed(key, (int)keyCode);
+
+  if (key=='1') {
+    pantalla = Pantalla.INICI;
+  } else if (key=='2') {
+    pantalla = Pantalla.SOMNI;
+  } else if (key=='3') {
+    pantalla = Pantalla.CREDITS;
+  }
+  if (pantalla==pantalla.SOMNI) {
     areaText.keyPressed(key, (int)keyCode);
-    if(keyCode==LEFT){
-    c.prevMonth();
-    println("PREV MONTH");
+    if (keyCode==LEFT) {
+      c.prevMonth();
+      println("PREV MONTH");
+    }
+    // Anar un mes endavant
+    else if (keyCode==RIGHT) {
+      c.nextMonth();
+      println("PREV MONTH");
+    }
   }
-  // Anar un mes endavant
-  else if(keyCode==RIGHT){
-    c.nextMonth();
-    println("PREV MONTH");
-  }
-   }
 }
 
 // Modifica el cursor
-void updateCursor(){
-  
-  if((pantalla==Pantalla.INICI && ib.mouseOverButton() && ib.enabled)){
+void updateCursor() {
+
+  if ((pantalla==Pantalla.INICI && ib.mouseOverButton() && ib.enabled)) {
+    cursor(HAND);
+  } else {
+    cursor(ARROW);
+  }
+
+  if (b1.mouseOverButton()) {
+    cursor(HAND);
+  } else {
+    cursor(ARROW);
+  }
+  if((s1.mouseOverSelect() && s1.enabled)){
       cursor(HAND);
   }
   else {
      cursor(ARROW);
   }
-  
-if(b1.mouseOverButton()){
-      cursor(HAND);
-  }
-  else {
-     cursor(ARROW);
+}
+
+void updateColor() {
+  if (s1.selectedValue=="RED") {
+    bgColor = color(255, 0, 0);
+  } else if (s1.selectedValue=="GREEN") {
+    bgColor = color(0, 255, 0);
+  } else if (s1.selectedValue=="BLUE") {
+    bgColor = color(0, 0, 255);
   }
 }

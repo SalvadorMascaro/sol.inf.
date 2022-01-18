@@ -9,12 +9,15 @@ void dibuixaPantalla02() {
   dibuixaZonaLogo();
   dibuixabGuardar();
   dibuixaInserirDream();
-  dibuixaCalendari();
+  
   dibuixaSwitch();
+  dibuixaSelect();
+  dibuixaCalendari();
 
 }
 
 void dibuixaPantalla03(){
    dibuixaZonaLogo();
    dibuixaGrafic();
+   dibuixaVariables();
 }
