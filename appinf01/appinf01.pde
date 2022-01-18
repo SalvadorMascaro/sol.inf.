@@ -1,6 +1,6 @@
 
 enum Pantalla {
-  INICI, SOMNI, CREDITS
+  USUARI,INICI, SOMNI, CREDITS
 };
 Pantalla pantalla = Pantalla.INICI;
 
@@ -18,6 +18,9 @@ void draw() {
 
   background(255);      
   switch(pantalla) {
+  case USUARI: 
+    dibuixaPantalla00(); 
+    break;
   case INICI: 
     dibuixaPantalla01(); 
     break;
@@ -78,7 +81,9 @@ void mousePressed() {
 void keyPressed() {
   textDream.keyPressed(key, (int)keyCode);
 
-  if (key=='1') {
+  if (key=='0') {
+    pantalla = Pantalla.USUARI;
+  }else if (key=='1') {
     pantalla = Pantalla.INICI;
   } else if (key=='2') {
     pantalla = Pantalla.SOMNI;

@@ -1,3 +1,7 @@
+void dibuixaPantalla00(){
+   dibuixaFons();
+  // dibuixaImatge();
+}
 void dibuixaPantalla01() {
   dibuixaZonaLogo();
   dibuixaBanner1();

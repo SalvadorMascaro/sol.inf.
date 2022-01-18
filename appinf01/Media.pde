@@ -4,7 +4,7 @@
 import processing.sound.*;
 
 // Imatges
-PImage imgAfegir, imgFons;
+PImage imgAfegir, imgFons, imgUsuari;
 // Tipografies
 PFont font1, font2, font3;
 // Audios
@@ -20,6 +20,7 @@ void loadMedia(){
 // Càrrega de les Imatges
 void loadImages(){
   imgAfegir = loadImage("../data/imgs/Afegir.png");
+  imgAfegir = loadImage("../data/imgs/Usuari.png");
   //imgFons = loadImage("../DATA/imgs/fonsTrivio.png");
 }
 
