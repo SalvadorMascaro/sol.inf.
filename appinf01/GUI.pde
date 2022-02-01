@@ -7,6 +7,11 @@ Calendari c;
 SwitchButton b1, b2;
 Select s1;
 BarsDiagram s;
+SwitchFilterArray sfa;
+
+int sfW = 700;
+int sfH = 40;
+String[] info = {"tema1", "tema2", "tema3"};
 
 boolean viewCalendar = false;
 PImage img1, img2, img3;
@@ -26,14 +31,15 @@ void setGUI() {
   initCalendari();
   initSelect();
   initBarsDiagram();
+  initFilter();
 }
 
 // Creació dels botons de la GUI
 void initButtons() {
   // Dimensions dels botons
-int buttonH = 60, buttonW = 100;
-int buttonH1= 60, buttonW1 =320;
-int buttonH2= 30, buttonW2=200;
+  int buttonH = 60, buttonW = 100;
+  int buttonH1= 60, buttonW1 =320;
+  int buttonH2= 30, buttonW2=200;
 
   bGuardar    = new Button("Guardar", marginH, marginV+ logoHeight+20, buttonW, buttonH);
   bSRecientes   = new Button("SUEÑOS RECIENTES", 2*marginH + logoWidth, marginV, buttonW1, buttonH1);
@@ -85,7 +91,13 @@ void initBarsDiagram() {
     color(255, 0, 0), color(0, 255, 0)};
 
   s = new BarsDiagram(50, 50, width/1.2, height/1.2);
-   s.setTexts(textos);
+  s.setTexts(textos);
   s.setValues(values);
   s.setColors(colors);
+}
+void initFilter() {
+  sfa = new SwitchFilterArray(width/5,height-50, sfW, sfH);
+
+  // Establim les etiquetes (noms) dels filtres
+  sfa.setData(info);
 }

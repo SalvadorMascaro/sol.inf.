@@ -75,6 +75,8 @@ void mousePressed() {
     }
     s1.toggle();        // Plegar o desplegar
   }
+  sfa.updateFilters();
+  
 }
 
 
@@ -109,21 +111,21 @@ void updateCursor() {
 
   if ((pantalla==Pantalla.INICI && ib.mouseOverButton() && ib.enabled)) {
     cursor(HAND);
-  } else {
-    cursor(ARROW);
   }
 
-  if (b1.mouseOverButton()) {
+  else if (b1.mouseOverButton()) {
     cursor(HAND);
-  } else {
-    cursor(ARROW);
-  }
-  if((s1.mouseOverSelect() && s1.enabled)){
+  } 
+  else if((s1.mouseOverSelect() && s1.enabled)){
       cursor(HAND);
+  }
+  else if(sfa.updateCursor()){
+    cursor(HAND);
   }
   else {
      cursor(ARROW);
   }
+  
 }
 
 void updateColor() {

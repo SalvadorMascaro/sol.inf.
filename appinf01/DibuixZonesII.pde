@@ -31,3 +31,7 @@ void dibuixaSwitch(){
 void dibuixaSelect(){
 s1.display();
 }
+
+void dibuixaFiltres(){
+sfa.display();
+}
