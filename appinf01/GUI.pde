@@ -1,24 +1,21 @@
 boolean logged = false;
 
 
-Button bGuardar, bSRecientes, bRGrafico, bBElementos, bFecha, bVariables, bLogo;
+Button bGuardar, bSRecientes, bRGrafico, bBElementos, bFecha, bVariables;
 TextField textDream;
 TextArea areaText;
-ImageButton ib;
+ImageButton ib,  bLogo;
 Calendari c;
 SwitchButton b1, b2;
 Select s1;
 BarsDiagram s;
 SwitchFilterArray sfa;
-CheckBoxList cbl;
 TextField userText, passText;
 
 
 int sfW = 800;
 int sfH = 40;
-String[] info2 = {"tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7"};
-
-String[] info = {"Almond", "Apple", "Avocado", "Banana", "Blackberry"};
+String[] info = {"tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7"};
 
 boolean viewCalendar = false;
 PImage img1, img2, img3, img4;
@@ -39,7 +36,6 @@ void setGUI() {
   initSelect();
   initBarsDiagram();
   initFilter();
-  initCheckBoxList();
   initTextFieldlogin();
 }
 
@@ -56,7 +52,7 @@ void initButtons() {
   bBElementos= new Button("BÚSQUEDA POR ELEMENTOS", 2*marginH + logoWidth+ 2*banner1Width +2*margeseparacio, marginV, buttonW1, buttonH1);
   bFecha= new Button("Fecha", 1200, height/8, buttonW2, buttonH2);
   b1 = new SwitchButton(1200, 200, buttonW3, buttonH3);
-  bVariables= new Button ("Variables", 275, 20, 100, 40);
+  bVariables= new Button ("Grafico", 275, 20, 100, 40);
  
 
 
@@ -67,7 +63,7 @@ void initButtons() {
   ib = new ImageButton(buttonImages, W/2-15, H-190, buttoniW, buttoniH);
   
   img4 = loadImage("../data/imgs/Afegir.png");
-  PImage[] buttonLogo = {img4};
+  PImage[] buttonLogo = {img4, img4, img4};
   bLogo = new ImageButton (buttonLogo,marginH, marginV, logoWidth, logoHeight);
 }
 
@@ -111,10 +107,6 @@ void initFilter() {
   sfa = new SwitchFilterArray(width/5, height-50, sfW, sfH);
   // Establim les etiquetes (noms) dels filtres
   sfa.setData(info);
-}
-
-void initCheckBoxList() {
-  cbl= new CheckBoxList(info, width/3, height/4, 50, 50);
 }
 
 void initTextFieldlogin() {
