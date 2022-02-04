@@ -1,10 +1,7 @@
 // FUNCIONS DE DIBUIX DE LES ZONES
 
 void dibuixaZonaLogo() {
-  fill(100);
-  rect(marginH, marginV, logoWidth, logoHeight);
-  fill(0);
-  text("LOGO", marginH + logoWidth/2, marginV + logoHeight/2);
+  bLogo.display();
 }
 
 void dibuixaSideBar() {
@@ -34,8 +31,8 @@ void dibuixaBanner3() {
   //popStyle();
 //}
 void dibuixaCreu() {
-  //pushStyle();
+  pushStyle();
   text("añadir sueño", W/2, H-130);
- // popStyle();
+  popStyle();
  ib.display();
 }

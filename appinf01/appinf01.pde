@@ -56,6 +56,7 @@ void mousePressed() {
     areaText.isPressed();
     c.checkButtons();
   }
+  
   if (pantalla==Pantalla.SOMNI && bFecha.mouseOverButton() && ib.enabled) {
     viewCalendar = !viewCalendar;
   }
@@ -75,8 +76,7 @@ void mousePressed() {
     }
     s1.toggle();        // Plegar o desplegar
   }
-  sfa.updateFilters();
-  
+  sfa.updateFilters();  
 }
 
 

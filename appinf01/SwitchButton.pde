@@ -34,7 +34,11 @@ class SwitchButton {
  
  // Dibuixa el botó
  void display(){
+   pushStyle();
    
+   fill(0);
+   textAlign(CENTER); textSize(14);
+   text("Sueño lúcido", this.x + this.w/2, this.y - 3);
    pushStyle();
    
    if(!enabled){

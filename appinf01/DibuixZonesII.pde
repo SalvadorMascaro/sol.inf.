@@ -35,3 +35,6 @@ s1.display();
 void dibuixaFiltres(){
 sfa.display();
 }
+void dibuixaCheckBoxList(){
+//cbl.display();
+}

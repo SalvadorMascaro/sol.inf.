@@ -50,7 +50,7 @@ class SwitchFilter{
    
    fill(0);
    textAlign(CENTER); textSize(12);
-   text(this.name, this.x + this.w/2, this.y - 10);
+   text(this.name, this.x + this.w/2, this.y - 2);
    
    if(!enabled){
      fill(fillColorDisabled);  // Color desabilitat

@@ -1,5 +1,7 @@
+boolean logged = false;
 
-Button bGuardar, bSRecientes, bRGrafico, bBElementos, bFecha, bVariables;
+
+Button bGuardar, bSRecientes, bRGrafico, bBElementos, bFecha, bVariables, bLogo;
 TextField textDream;
 TextArea areaText;
 ImageButton ib;
@@ -8,13 +10,18 @@ SwitchButton b1, b2;
 Select s1;
 BarsDiagram s;
 SwitchFilterArray sfa;
+CheckBoxList cbl;
+TextField userText, passText;
 
-int sfW = 700;
+
+int sfW = 800;
 int sfH = 40;
-String[] info = {"tema1", "tema2", "tema3"};
+String[] info2 = {"tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7"};
+
+String[] info = {"Almond", "Apple", "Avocado", "Banana", "Blackberry"};
 
 boolean viewCalendar = false;
-PImage img1, img2, img3;
+PImage img1, img2, img3, img4;
 
 // Dimensions dels botons
 float buttoniW = 50;
@@ -32,6 +39,8 @@ void setGUI() {
   initSelect();
   initBarsDiagram();
   initFilter();
+  initCheckBoxList();
+  initTextFieldlogin();
 }
 
 // Creació dels botons de la GUI
@@ -48,15 +57,18 @@ void initButtons() {
   bFecha= new Button("Fecha", 1200, height/8, buttonW2, buttonH2);
   b1 = new SwitchButton(1200, 200, buttonW3, buttonH3);
   bVariables= new Button ("Variables", 275, 20, 100, 40);
+ 
 
 
   img1 = loadImage("../data/imgs/Afegir.png");
   img2 = loadImage("../data/imgs/Afegir.png");
   img3 = loadImage("../data/imgs/Afegir.png");
   PImage[] buttonImages = {img1, img2, img3};
-
-  // Creació dels botons
   ib = new ImageButton(buttonImages, W/2-15, H-190, buttoniW, buttoniH);
+  
+  img4 = loadImage("../data/imgs/Afegir.png");
+  PImage[] buttonLogo = {img4};
+  bLogo = new ImageButton (buttonLogo,marginH, marginV, logoWidth, logoHeight);
 }
 
 
@@ -69,15 +81,15 @@ void initTextField() {
   textDream= new TextField(200, 200, 200, 30);
 }
 void initTextArea() {
-  areaText = new TextArea(250, 50, 900, 800, 70, 13);// col. fil
+  areaText = new TextArea(250, height/30, 900, height-100, 70, 13);// col. fil
 }
 void initCalendari() {
   c = new Calendari(1155, 230, 250, 250);
 }
 
 void initSelect() {
-  String[] selectValues = {"RED", "GREEN", "BLUE"};
-  String[] selectValues2 = {"1", "2", "3"};
+  String[] selectValues = {"RED", "GREEN", "BLUE", "WHITE", "BLACK", "ORANGE", "YELLOW", "PURPLE"};
+  String[] selectValues2 = {"1", "2", "3", "4", "5", "6", "7", "8"};
   float selectW = 200;
   float selectH = 30;
 
@@ -96,8 +108,16 @@ void initBarsDiagram() {
   s.setColors(colors);
 }
 void initFilter() {
-  sfa = new SwitchFilterArray(width/5,height-50, sfW, sfH);
-
+  sfa = new SwitchFilterArray(width/5, height-50, sfW, sfH);
   // Establim les etiquetes (noms) dels filtres
   sfa.setData(info);
+}
+
+void initCheckBoxList() {
+  cbl= new CheckBoxList(info, width/3, height/4, 50, 50);
+}
+
+void initTextFieldlogin() {
+  userText = new TextField(260, 103, 200, 35);
+  passText = new TextField(260, 153, 200, 35);
 }

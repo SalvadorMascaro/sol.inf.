@@ -18,6 +18,7 @@ void dibuixaPantalla02() {
   dibuixaSelect();
   dibuixaCalendari();
   dibuixaFiltres();
+  dibuixaCheckBoxList();
 
 }
 
