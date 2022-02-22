@@ -2,12 +2,13 @@ boolean logged = false;
 
 
 Button bGuardar, bSRecientes, bRGrafico, bBElementos, bFecha, bVariables;
+boolean bVariablesShow = false;
 TextField textDream;
 TextArea areaText;
 ImageButton ib,  bLogo;
 Calendari c;
 SwitchButton b1, b2;
-Select s1;
+Select s1, s2;
 BarsDiagram s;
 SwitchFilterArray sfa;
 TextField userText, passText;
@@ -52,7 +53,9 @@ void initButtons() {
   bBElementos= new Button("BÚSQUEDA POR ELEMENTOS", 2*marginH + logoWidth+ 2*banner1Width +2*margeseparacio, marginV, buttonW1, buttonH1);
   bFecha= new Button("Fecha", 1200, height/8, buttonW2, buttonH2);
   b1 = new SwitchButton(1200, 200, buttonW3, buttonH3);
-  bVariables= new Button ("Grafico", 275, 20, 100, 40);
+  
+  
+  bVariables= new Button ("Grafico", logoWidth+pageWidth/11, pageHeight/15, 100, 40);
  
 
 
@@ -88,8 +91,11 @@ void initSelect() {
   String[] selectValues2 = {"1", "2", "3", "4", "5", "6", "7", "8"};
   float selectW = 200;
   float selectH = 30;
+  float selectW2 = 200;
+  float selectH2= 30;
 
   s1 = new Select(selectValues, 1200, 275, selectW, selectH);
+  s2= new Select(selectValues2, logoWidth+pageWidth/11, pageHeight/10+20, selectW2, selectH2);
 }
 
 void initBarsDiagram() {
@@ -110,6 +116,6 @@ void initFilter() {
 }
 
 void initTextFieldlogin() {
-  userText = new TextField(260, 103, 200, 35);
-  passText = new TextField(260, 153, 200, 35);
+  userText = new TextField(700, 700, 200, 35);
+  passText = new TextField(700, 753, 200, 35);
 }

@@ -1,3 +1,5 @@
+int Width0= 600;
+int Height0=600;
 void dibuixaFons(){
 pushStyle();
 rectMode(CENTER);
@@ -19,8 +21,8 @@ void dibuixaLogin(){
   textAlign(LEFT);
   text("LOGIN FORM", 100, 60);
   textSize(24); 
-  text("Username: ", 100, 130);
-  text("Password: ", 100, 180);
+  text("Username: ", Width0, pageHeight/10*5+200);
+  text("Password: ", Width0, pageHeight/10*5+230);
  // Dibuixa els camps de text
    userText.display();
    passText.display();

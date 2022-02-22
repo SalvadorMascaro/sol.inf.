@@ -93,6 +93,19 @@ void mousePressed() {
       }
     }
   }
+  if (pantalla==pantalla.GRAFICS) {
+     if (bVariables.mouseOverButton() && bVariables.enabled) {
+      bVariablesShow  = !bVariablesShow;
+    }
+  
+  if (s2.mouseOverSelect() && s2.enabled) {
+      if (!s2.collapsed) {
+        s2.update();      // Actualitzar valor
+        updateColor();    // Fer acció amb valor
+      }
+      s2.toggle();        // Plegar o desplegar
+  }
+  } 
 }
 
 
