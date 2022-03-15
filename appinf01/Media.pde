@@ -21,6 +21,7 @@ void loadMedia(){
 void loadImages(){
   imgAfegir = loadImage("../data/imgs/Afegir.png");
   imgAfegir = loadImage("../data/imgs/Usuari.png");
+  imgAfegir = loadImage("../data/imgs/Logo.PNG");
   //imgFons = loadImage("../DATA/imgs/fonsTrivio.png");
 }
 

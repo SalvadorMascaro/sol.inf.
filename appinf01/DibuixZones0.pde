@@ -9,11 +9,11 @@ popStyle();
 }
 
 
-//void dibuixaImatge(){
-//PImage img;
-//img= loadImage("Usuari.png");
-//image(img, width/2+2*width/4, height/2+2*height/4);
-//}
+void dibuixaImatge(){
+PImage img;
+img= loadImage("Usuari.png");
+image(img, width/2, height/2+2*height/4);
+}
 
 void dibuixaLogin(){
   fill(0); 
@@ -21,8 +21,8 @@ void dibuixaLogin(){
   textAlign(LEFT);
   text("LOGIN FORM", 100, 60);
   textSize(24); 
-  text("Username: ", Width0, pageHeight/10*5+200);
-  text("Password: ", Width0, pageHeight/10*5+230);
+  text("Username: ", width/2-250, height/2+25);
+  text("Password: ", width/2-250, height/2+80);
  // Dibuixa els camps de text
    userText.display();
    passText.display();

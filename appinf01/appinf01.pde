@@ -1,8 +1,8 @@
 
 enum Pantalla {
-  USUARI, INICI, SOMNI, GRAFICS
+  USUARI, INICI, SOMNI, GRAFICS, CERCA, RESULTATS
 };
-Pantalla pantalla = Pantalla.INICI;
+Pantalla pantalla = Pantalla.USUARI;
 
 void setup() {
   fullScreen();            // Pantalla completa
@@ -18,6 +18,7 @@ void draw() {
 
   background(255);      
   switch(pantalla) {
+
   case USUARI: 
     dibuixaPantalla00(); 
     break;
@@ -29,6 +30,12 @@ void draw() {
     break;
   case GRAFICS: 
     dibuixaPantalla03(); 
+    break;
+  case CERCA: 
+    dibuixaPantalla04(); 
+    break;
+  case RESULTATS: 
+    dibuixaPantalla05(); 
     break;
   }
 
@@ -46,10 +53,10 @@ void draw() {
 
 
 void mousePressed() {
-  
-   if (bLogo.mouseOverButton() && bLogo.enabled) {
-      pantalla = Pantalla.INICI;
-    }
+
+  if (bLogo.mouseOverButton() && bLogo.enabled) {
+    pantalla = Pantalla.INICI;
+  }
 
   // ESDEVENIMENTS DE MOUSE A PANTLLA INICI
   if (pantalla==Pantalla.INICI) {
@@ -93,24 +100,66 @@ void mousePressed() {
       }
     }
   }
+
+  // CLICKS EN PANTALLA DE GRAFICOS
   if (pantalla==pantalla.GRAFICS) {
-     if (bVariables.mouseOverButton() && bVariables.enabled) {
+    if (bVariables.mouseOverButton() && bVariables.enabled) {
       bVariablesShow  = !bVariablesShow;
     }
-  
-  if (s2.mouseOverSelect() && s2.enabled) {
+
+    if (s2.mouseOverSelect() && s2.enabled) {
       if (!s2.collapsed) {
         s2.update();      // Actualitzar valor
         updateColor();    // Fer acció amb valor
       }
       s2.toggle();        // Plegar o desplegar
+    }
   }
-  } 
+  
+  // CLICKS EN PANTALLA DE RESLTADOS
+  if (pantalla==pantalla.RESULTATS) {
+    
+    if(br1.mouseOverButton() && br1.enabled){
+      pc.nextPage();
+    }
+    else if(br2.mouseOverButton() && br2.enabled){
+      pc.prevPage();
+    }
+    
+  }
 }
-
 
 void keyPressed() {
   textDream.keyPressed(key, (int)keyCode);
+
+  if (key=='0') {
+    pantalla = Pantalla.USUARI;
+  } else if (key=='1') {
+    pantalla = Pantalla.INICI;
+  } else if (key=='2') {
+    pantalla = Pantalla.SOMNI;
+  } else if (key=='3') {
+    pantalla = Pantalla.GRAFICS;
+  } else if (key=='4') {
+    pantalla = Pantalla.CERCA;
+  } else if (key=='5') {
+    pantalla = Pantalla.RESULTATS;
+  }
+
+  if (pantalla==pantalla.SOMNI) {
+    areaText.keyPressed(key, (int)keyCode);
+    if (keyCode==LEFT) {
+      c.prevMonth();
+      println("PREV MONTH");
+    }
+    // Anar un mes endavant
+    else if (keyCode==RIGHT) {
+      c.nextMonth();
+      println("PREV MONTH");
+    }
+  }
+
+
 
   if (key=='0') {
     pantalla = Pantalla.USUARI;
@@ -160,3 +209,35 @@ void updateColor() {
     bgColor = color(0, 0, 255);
   }
 }
+
+
+
+
+
+
+/*void keyPressed() {
+ textDream.keyPressed(key, (int)keyCode);
+ 
+ if (key=='0') {
+ pantalla = Pantalla.USUARI;
+ } else if (key=='1') {
+ pantalla = Pantalla.INICI;
+ } else if (key=='2') {
+ pantalla = Pantalla.SOMNI;
+ } else if (key=='3') {
+ pantalla = Pantalla.GRAFICS;
+ }
+ if (pantalla==pantalla.SOMNI) {
+ areaText.keyPressed(key, (int)keyCode);
+ if (keyCode==LEFT) {
+ c.prevMonth();
+ println("PREV MONTH");
+ }
+ // Anar un mes endavant
+ else if (keyCode==RIGHT) {
+ c.nextMonth();
+ println("PREV MONTH");
+ }
+ }
+ }
+ */

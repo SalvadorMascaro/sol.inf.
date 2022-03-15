@@ -1,6 +1,7 @@
 void dibuixaPantalla00(){
    dibuixaFons();
    dibuixaLogin();
+   //dibuixaImatge();
 }
 void dibuixaPantalla01() {
   dibuixaZonaLogo();
@@ -28,4 +29,12 @@ void dibuixaPantalla03(){
    dibuixaVariables();
    dibuixaSelect2();
 
+}
+
+void dibuixaPantalla04(){
+   dibuixaCerca();
+}
+
+void dibuixaPantalla05(){
+dibuixaResultats();
 }

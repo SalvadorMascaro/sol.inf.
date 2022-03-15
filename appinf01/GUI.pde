@@ -1,22 +1,41 @@
 boolean logged = false;
+float cardsW = 800, cardsH = 700;
+Result rs = null;
+int numCardsPage = 4;
+PagedResults pc;
+
+String titol="fitxer.txt";
+String ruta = "C:\\Users\\tonim\\Documents\\CODE\\P5LAB\\GUI\\textfileSave_001\\data\\";
 
 
-Button bGuardar, bSRecientes, bRGrafico, bBElementos, bFecha, bVariables;
+Button bGuardar, bSRecientes, bRGrafico, bBElementos, bFecha, bVariables, bCerca;
+Button br1, br2;
 boolean bVariablesShow = false;
-TextField textDream;
+TextField textDream,  cercaText;
 TextArea areaText;
 ImageButton ib,  bLogo;
 Calendari c;
 SwitchButton b1, b2;
 Select s1, s2;
 BarsDiagram s;
-SwitchFilterArray sfa;
+SwitchFilterArray sfa, sfc;
 TextField userText, passText;
+
 
 
 int sfW = 800;
 int sfH = 40;
 String[] info = {"tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7"};
+String[][] inforesults = {
+                     {"Títol 1", "Descripció 1", "Label1,Label2,Label3,Label4"},
+                     {"Títol 2", "Descripció 2", "Label1,Label2,Label3"},
+                     {"Títol 3", "Descripció 3", "Label1,Label3"},
+                     {"Títol 4", "Descripció 4", "Label2,Label3"},
+                     {"Títol 5", "Descripció 5", "Label1,Label2,Label3,Label4"},
+                     {"Títol 6", "Descripció 6", "Label1,Label3"},
+                     {"Títol 7", "Descripció 7", "Label1,Label2,Label3"},
+                  };
+
 
 boolean viewCalendar = false;
 PImage img1, img2, img3, img4;
@@ -38,6 +57,7 @@ void setGUI() {
   initBarsDiagram();
   initFilter();
   initTextFieldlogin();
+  pagedResults();
 }
 
 // Creació dels botons de la GUI
@@ -53,7 +73,7 @@ void initButtons() {
   bBElementos= new Button("BÚSQUEDA POR ELEMENTOS", 2*marginH + logoWidth+ 2*banner1Width +2*margeseparacio, marginV, buttonW1, buttonH1);
   bFecha= new Button("Fecha", 1200, height/8, buttonW2, buttonH2);
   b1 = new SwitchButton(1200, 200, buttonW3, buttonH3);
-  
+  bCerca    = new Button("Buscar", marginH, marginV+ logoHeight+20, buttonW, buttonH);
   
   bVariables= new Button ("Grafico", logoWidth+pageWidth/11, pageHeight/15, 100, 40);
  
@@ -65,7 +85,7 @@ void initButtons() {
   PImage[] buttonImages = {img1, img2, img3};
   ib = new ImageButton(buttonImages, W/2-15, H-190, buttoniW, buttoniH);
   
-  img4 = loadImage("../data/imgs/Afegir.png");
+  img4 = loadImage("../data/imgs/Logo.PNG");
   PImage[] buttonLogo = {img4, img4, img4};
   bLogo = new ImageButton (buttonLogo,marginH, marginV, logoWidth, logoHeight);
 }
@@ -78,6 +98,8 @@ void enableButtons() {
 
 void initTextField() {
   textDream= new TextField(200, 200, 200, 30);
+  cercaText= new TextField(200, 200, 200, 30);
+ 
 }
 void initTextArea() {
   areaText = new TextArea(250, height/30, 900, height-100, 70, 13);// col. fil
@@ -113,9 +135,29 @@ void initFilter() {
   sfa = new SwitchFilterArray(width/5, height-50, sfW, sfH);
   // Establim les etiquetes (noms) dels filtres
   sfa.setData(info);
+
+sfc = new SwitchFilterArray(width/5, height-50, sfW, sfH);
+  // Establim les etiquetes (noms) dels filtres
+  sfc.setData(info);
 }
 
 void initTextFieldlogin() {
-  userText = new TextField(700, 700, 200, 35);
-  passText = new TextField(700, 753, 200, 35);
+  userText = new TextField(width/2-100, height/2, 200, 35);
+  passText = new TextField(width/2-100, height/2+50, 200, 35);
+}
+
+void pagedResults(){
+ 
+  pc = new PagedResults(numCardsPage);
+  pc.setData(inforesults);
+  pc.setCards();
+  
+  // Creació dels botons
+  float buttonW = 60;
+float buttonH = 60;
+
+  br1 = new Button("NEXT", 100 + cardsW, 80, buttonW, buttonH);
+  br2 = new Button("PREV", 100 + cardsW, 100 + buttonH, buttonW, buttonH);
+  
+
 }

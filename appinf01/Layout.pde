@@ -41,3 +41,10 @@ float buttonH3= 30;
 color bgColor = color(255);
 
 int n = 0;
+
+
+//color A= color();
+//color A= color();
+//color A= color();
+//color A= color();
+//color A= color();
