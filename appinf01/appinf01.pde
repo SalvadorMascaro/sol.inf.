@@ -127,6 +127,16 @@ void mousePressed() {
     }
     
   }
+  
+  if (pantalla==pantalla.CERCA) {
+    cercaText.isPressed();
+    sfc.updateFilters();
+    if(bCerca.mouseOverButton()&& bCerca.enabled){
+    pantalla=pantalla.RESULTATS;
+    }
+    
+ 
+  }
 }
 
 void keyPressed() {
@@ -144,6 +154,10 @@ void keyPressed() {
     pantalla = Pantalla.CERCA;
   } else if (key=='5') {
     pantalla = Pantalla.RESULTATS;
+  }
+  
+  if (pantalla==pantalla.CERCA) {
+    cercaText.keyPressed(key,(int)keyCode);
   }
 
   if (pantalla==pantalla.SOMNI) {

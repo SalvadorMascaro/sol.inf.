@@ -136,7 +136,7 @@ void initFilter() {
   // Establim les etiquetes (noms) dels filtres
   sfa.setData(info);
 
-sfc = new SwitchFilterArray(width/5, height-50, sfW, sfH);
+sfc = new SwitchFilterArray(width/5, height/2, sfW, sfH);
   // Establim les etiquetes (noms) dels filtres
   sfc.setData(info);
 }
