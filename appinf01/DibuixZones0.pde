@@ -1,3 +1,6 @@
+
+
+
 int Width0= 600;
 int Height0=600;
 void dibuixaFons(){
@@ -6,27 +9,31 @@ rectMode(CENTER);
 fill(200);
 rect(width/2, height/2, 3*width/6, 9*height/10);
 popStyle();
-}
 
+
+}
+/*void dibuixaBackground(){
+ background();
+}*/
 
 void dibuixaImatge(){
-PImage img;
-img= loadImage("Usuari.png");
-image(img, width/2, height/2+2*height/4);
+
+img= loadImage("user.png");
+imageMode(CENTER);
+image(img, W/2,H/2-Height0/7*2, Width0/5*2+30, Height0/5*2);
+
+//image(img, 8+wu, 4*hu, Width0/5*4, Height0/5*3.5);
+
 }
 
 void dibuixaLogin(){
   fill(0); 
-  textSize(48); 
-  textAlign(LEFT);
-  text("LOGIN FORM", 100, 60);
-  textSize(24); 
+  
   text("Username: ", width/2-250, height/2+25);
   text("Password: ", width/2-250, height/2+80);
  // Dibuixa els camps de text
    userText.display();
    passText.display();
-   
-   
+   bEnter.display();
   
 }

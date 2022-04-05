@@ -1,3 +1,7 @@
+PImage img;
+
+boolean colorselected= false;
+boolean comprovaLogin;
 boolean logged = false;
 float cardsW = 800, cardsH = 700;
 Result rs = null;
@@ -8,15 +12,15 @@ String titol="fitxer.txt";
 String ruta = "C:\\Users\\tonim\\Documents\\CODE\\P5LAB\\GUI\\textfileSave_001\\data\\";
 
 
-Button bGuardar, bSRecientes, bRGrafico, bBElementos, bFecha, bVariables, bCerca;
+Button bGuardar, bSRecientes, bRGrafico, bBElementos, bFecha, bVariables, bCerca, bEnter, bEliminar;
 Button br1, br2;
 boolean bVariablesShow = false;
-TextField textDream,  cercaText;
+TextField textDream, cercaText, tittleDream;
 TextArea areaText;
-ImageButton ib,  bLogo;
+ImageButton ib, bLogo, bDelete;
 Calendari c;
 SwitchButton b1, b2;
-Select s1, s2;
+Select s1, s2, s3, s4;
 BarsDiagram s;
 SwitchFilterArray sfa, sfc;
 TextField userText, passText;
@@ -27,18 +31,18 @@ int sfW = 800;
 int sfH = 40;
 String[] info = {"tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7"};
 String[][] inforesults = {
-                     {"Títol 1", "Descripció 1", "Label1,Label2,Label3,Label4"},
-                     {"Títol 2", "Descripció 2", "Label1,Label2,Label3"},
-                     {"Títol 3", "Descripció 3", "Label1,Label3"},
-                     {"Títol 4", "Descripció 4", "Label2,Label3"},
-                     {"Títol 5", "Descripció 5", "Label1,Label2,Label3,Label4"},
-                     {"Títol 6", "Descripció 6", "Label1,Label3"},
-                     {"Títol 7", "Descripció 7", "Label1,Label2,Label3"},
-                  };
+  {"1", "Títol 1", "10/03/2022", "Descripció 1", "S", "pesadilla", "paco@gmail.com", "Label1,Label2,Label3,Label4"}, 
+  {"2", "Títol 2", "10/03/2022", "Descripció 2", "S", "pesadilla", "paco@gmail.com", "Label1,Label2,Label3"}, 
+  {"3", "Títol 3", "10/03/2022", "Descripció 3", "N", "pesadilla", "paco@gmail.com", "Label1,Label3"}, 
+  {"4", "Títol 4", "10/03/2022", "Descripció 4", "S", "pesadilla", "paco@gmail.com", "Label2,Label3"}, 
+  {"5", "Títol 5", "10/03/2022", "Descripció 5", "N", "pesadilla", "paco@gmail.com", "Label1,Label2,Label3,Label4"}, 
+  {"6", "Títol 6", "10/03/2022", "Descripció 6", "S", "pesadilla", "paco@gmail.com", "Label1,Label3"}, 
+  {"7", "Títol 7", "10/03/2022", "Descripció 7", "N", "pesadilla", "paco@gmail.com", "Label1,Label2,Label3"}, 
+};
 
 
 boolean viewCalendar = false;
-PImage img1, img2, img3, img4;
+PImage img1, img2, img3, img4, img5, img6;
 
 // Dimensions dels botons
 float buttoniW = 50;
@@ -67,27 +71,29 @@ void initButtons() {
   int buttonH1= 60, buttonW1 =320;
   int buttonH2= 30, buttonW2=200;
 
-  bGuardar    = new Button("Guardar", marginH, marginV+ logoHeight+20, buttonW, buttonH);
+  bGuardar    = new Button("Guardar", width-buttonW-width/15, height/10*7, buttonW2, buttonH2);
   bSRecientes   = new Button("SUEÑOS RECIENTES", 2*marginH + logoWidth, marginV, buttonW1, buttonH1);
   bRGrafico= new Button("REGISTRO GRAFICO", 2*marginH + logoWidth+ banner1Width +margeseparacio, marginV, buttonW1, buttonH1);
   bBElementos= new Button("BÚSQUEDA POR ELEMENTOS", 2*marginH + logoWidth+ 2*banner1Width +2*margeseparacio, marginV, buttonW1, buttonH1);
-  bFecha= new Button("Fecha", 1200, height/8, buttonW2, buttonH2);
+  bFecha= new Button("Fecha", width/2+textAreaWidth/2+30, height/8, buttonW2, buttonH2);
   b1 = new SwitchButton(1200, 200, buttonW3, buttonH3);
-  bCerca    = new Button("Buscar", marginH, marginV+ logoHeight+20, buttonW, buttonH);
-  
-  bVariables= new Button ("Grafico", logoWidth+pageWidth/11, pageHeight/15, 100, 40);
- 
+  bCerca    = new Button("Buscar", width/5*3, height/10*7, buttonW, buttonH);
+  bEliminar = new Button("Eliminiar",width/2+textAreaWidth/2+30, height/10*7, buttonW, buttonH);
 
+
+  bVariables= new Button ("Grafico", logoWidth+pageWidth/11, pageHeight/15, 100, 40);
+  bEnter = new Button("Entrar", width/2-buttonW/2, height/2+100, buttonW, buttonH);
 
   img1 = loadImage("../data/imgs/Afegir.png");
   img2 = loadImage("../data/imgs/Afegir.png");
   img3 = loadImage("../data/imgs/Afegir.png");
   PImage[] buttonImages = {img1, img2, img3};
   ib = new ImageButton(buttonImages, W/2-15, H-190, buttoniW, buttoniH);
-  
+
   img4 = loadImage("../data/imgs/Logo.PNG");
   PImage[] buttonLogo = {img4, img4, img4};
-  bLogo = new ImageButton (buttonLogo,marginH, marginV, logoWidth, logoHeight);
+  bLogo = new ImageButton (buttonLogo, marginH, marginV, logoWidth, logoHeight);
+  
 }
 
 
@@ -97,12 +103,12 @@ void enableButtons() {
 }
 
 void initTextField() {
+  tittleDream=new TextField(250, height/30*2, width/6*2,50);
   textDream= new TextField(200, 200, 200, 30);
-  cercaText= new TextField(200, 200, 200, 30);
- 
+  cercaText= new TextField(width/5, height/10, 400, 50);
 }
 void initTextArea() {
-  areaText = new TextArea(250, height/30, 900, height-100, 70, 13);// col. fil
+  areaText = new TextArea(250, height/30*5, textAreaWidth, height-100, 70, 13);// col. fil
 }
 void initCalendari() {
   c = new Calendari(1155, 230, 250, 250);
@@ -111,6 +117,8 @@ void initCalendari() {
 void initSelect() {
   String[] selectValues = {"RED", "GREEN", "BLUE", "WHITE", "BLACK", "ORANGE", "YELLOW", "PURPLE"};
   String[] selectValues2 = {"1", "2", "3", "4", "5", "6", "7", "8"};
+  String[] selectValues3 = {"paco", "usuari 1", "usuari2"};
+
   float selectW = 200;
   float selectH = 30;
   float selectW2 = 200;
@@ -118,7 +126,10 @@ void initSelect() {
 
   s1 = new Select(selectValues, 1200, 275, selectW, selectH);
   s2= new Select(selectValues2, logoWidth+pageWidth/11, pageHeight/10+20, selectW2, selectH2);
+  s3= new Select(selectValues3, width/5, height/10*2, selectW2, selectH2);
+  s4= new Select(selectValues, width/5*3, height/10*2, selectW2, selectH2);
 }
+
 
 void initBarsDiagram() {
   String[] textos = {"WATER", "AIR", "FIRE", "EARTH"};
@@ -136,7 +147,7 @@ void initFilter() {
   // Establim les etiquetes (noms) dels filtres
   sfa.setData(info);
 
-sfc = new SwitchFilterArray(width/5, height/2, sfW, sfH);
+  sfc = new SwitchFilterArray(width/5, height/5*3, sfW, sfH);
   // Establim les etiquetes (noms) dels filtres
   sfc.setData(info);
 }
@@ -146,18 +157,16 @@ void initTextFieldlogin() {
   passText = new TextField(width/2-100, height/2+50, 200, 35);
 }
 
-void pagedResults(){
- 
+void pagedResults() {
+
   pc = new PagedResults(numCardsPage);
   pc.setData(inforesults);
   pc.setCards();
-  
+
   // Creació dels botons
   float buttonW = 60;
-float buttonH = 60;
+  float buttonH = 60;
 
   br1 = new Button("NEXT", 100 + cardsW, 80, buttonW, buttonH);
   br2 = new Button("PREV", 100 + cardsW, 100 + buttonH, buttonW, buttonH);
-  
-
 }

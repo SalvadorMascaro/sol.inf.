@@ -1,32 +1,26 @@
 class Result {
   
  // Propietats
+ String id;
  String title;
+ String fecha;
  String description;
+ String categoria;
+ String lucidez;
+ String email;
  String[] labels;
  
- Button bVeure;
- 
- // Constructors
- 
- Result(){
- }
- 
- Result(String title, String description){
-   this.title = title;
-   this.description = description;
- }
- 
- Result(String title, String description, String[] labels){
-   this.title = title;
-   this.description = description;
-   this.labels = labels;
- }
+ // Constructor
  
  Result(String[] data){
-   this.title = data[0];
-   this.description = data[1];
-   this.labels = split(data[2], ",");
+   this.id = data[0];
+   this.title = data[1];
+   this.fecha = data[2];
+   this.description = data[3];
+   this.lucidez = data[4];
+   this.categoria = data[5];
+   this.email = data[6];
+   this.labels = split(data[7], ",");
    
 }
  
@@ -49,12 +43,22 @@ class Result {
    float imgH = h - 2*b;
    
    // Títol
-   fill(0); textSize(24); textAlign(CENTER);
-   text(title, x + w/2, y + h/5);
+   fill(0); textSize(24); textAlign(LEFT);
+   text(title, x + 10, y + h/7);
+   
+   // Fecha
+   fill(0); textSize(16); textAlign(LEFT);
+   text(fecha, x + 10, y + 2*h/7);
+   
+   // Categoria
+   fill(100, 100, 200); noStroke();
+   rect(x + w - 100, y + 8, 100, 25);
+   fill(0);  textAlign(RIGHT); textSize(14);
+   text(categoria, x + w - 10, y + 25);
    
    // Descripció
    fill(0);textSize(14); textAlign(LEFT);
-   text(description+" ...", x + b, y + h/3, w - b*2, h/4);
+   text(description+" ...", x + b, y + 3*h/7, w - b*2, h/4);
    
    float espaiLabels = 220;
     for(int i=0; i<min(4, this.labels.length); i++){

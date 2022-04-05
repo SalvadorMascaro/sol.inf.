@@ -18,9 +18,9 @@ class SwitchFilter{
    this.w = w;
    this.h = h;
    this.enabled = true;
-   fillColor = color(100);
-   fillColorOver = color(150);
-   fillColorDisabled = color(200);
+   fillColor = color(colorA);
+   fillColorOver = color( colorA);
+   fillColorDisabled = color( 150);
    strokeColor = color(0);
  }
  

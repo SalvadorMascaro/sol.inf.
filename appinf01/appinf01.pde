@@ -1,4 +1,4 @@
-
+  
 enum Pantalla {
   USUARI, INICI, SOMNI, GRAFICS, CERCA, RESULTATS
 };
@@ -42,21 +42,19 @@ void draw() {
 
   updateCursor();
 
-  pushStyle();
-  fill(0);
-  textSize(36);
-  textAlign(RIGHT);
-  text("PANTALLA ", width-50, 60);
-  text("X: "+mouseX+", Y:"+mouseY, width-50, 100);
-  popStyle();
+  
 }
-
 
 void mousePressed() {
 
   if (bLogo.mouseOverButton() && bLogo.enabled) {
     pantalla = Pantalla.INICI;
   }
+      //ACCIONES DE MOUSE AL LOG IN
+      if (pantalla==Pantalla.USUARI) {
+       userText.isPressed();
+       passText.isPressed();
+      }
 
   // ESDEVENIMENTS DE MOUSE A PANTLLA INICI
   if (pantalla==Pantalla.INICI) {
@@ -70,6 +68,9 @@ void mousePressed() {
     }
     if (bRGrafico.mouseOverButton() &&  bRGrafico.enabled) {
       pantalla = Pantalla.GRAFICS;
+    }
+    if (bBElementos.mouseOverButton() &&  bBElementos.enabled) {
+      pantalla = Pantalla.CERCA;
     }
   }
 
@@ -99,6 +100,11 @@ void mousePressed() {
         bgColor = color(0);
       }
     }
+    if (bDelete.mouseOverButton() && bDelete.enabled) {
+      pantalla = Pantalla.GRAFICS;
+    }
+    tittleDream.isPressed();
+    
   }
 
   // CLICKS EN PANTALLA DE GRAFICOS
@@ -127,15 +133,28 @@ void mousePressed() {
     }
     
   }
-  
+  //ACCIONES PANTALLA BÚSQUEDA
   if (pantalla==pantalla.CERCA) {
     cercaText.isPressed();
     sfc.updateFilters();
     if(bCerca.mouseOverButton()&& bCerca.enabled){
     pantalla=pantalla.RESULTATS;
     }
+    if (s3.mouseOverSelect() && s3.enabled) {
+      if (!s3.collapsed) {
+        s3.update();      // Actualitzar valor
+        updateColor();    // Fer acció amb valor
+      }
+      s3.toggle();        // Plegar o desplegar
+    }
     
- 
+ if (s4.mouseOverSelect() && s4.enabled) {
+      if (!s4.collapsed) {
+        s4.update();      // Actualitzar valor
+        updateColor();    // Fer acció amb valor
+      }
+      s4.toggle();        // Plegar o desplegar
+    }
   }
 }
 
@@ -162,7 +181,8 @@ void keyPressed() {
 
   if (pantalla==pantalla.SOMNI) {
     areaText.keyPressed(key, (int)keyCode);
-    if (keyCode==LEFT) {
+    tittleDream.keyPressed(key, (int)keyCode);
+        if (keyCode==LEFT) {
       c.prevMonth();
       println("PREV MONTH");
     }

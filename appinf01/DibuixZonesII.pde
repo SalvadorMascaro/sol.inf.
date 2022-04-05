@@ -9,20 +9,26 @@ void dibuixaPagina() {
   popStyle();bGuardar.display();
 }
 void dibuixaInserirDream(){
-   fill(0); textSize(48); textAlign(LEFT);
-   text("Text Area", 100, 60);
-   
-   // Dibuixa l'àrea de text
+  fill(colorC); textSize(20); textAlign(LEFT);
+ text("Añadir sueño",250, height/30*4.5); 
+    fill(0); textSize(48); textAlign(LEFT);
    areaText.display();
 }
-void dibuixabGuardar(){
+void dibuixaBotons(){
 bGuardar.display();
+bEliminar.display();
 }
+
 void dibuixaCalendari(){
  bFecha.display();
  if(viewCalendar){
    c.display();
  }
+}
+void dibuixaTittleDream(){
+ fill(150); textSize(20); textAlign(LEFT);
+ text("Añadir título",250, height/30*1.5);
+tittleDream.display();
 }
 
 void dibuixaSwitch(){

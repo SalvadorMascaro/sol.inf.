@@ -16,8 +16,8 @@ class SwitchButton {
    this.w = w;
    this.h = h;
    this.enabled = true;
-   fillColor = color(155, 55, 155);
-   fillColorOver = color(255, 55, 155);
+   fillColor = color(colorA);
+   fillColorOver = color(colorA);
    fillColorDisabled = color(150);
    strokeColor = color(0);
  }

@@ -6,7 +6,7 @@ class TextField {
   // Colors
   color bgColor = color(140, 140, 140);
   color fgColor = color(0, 0, 0);
-  color selectedColor = color(190, 190, 60);
+  color selectedColor = colorB;
   color borderColor = color(30, 30, 30);
   int borderWeight = 1;
   
@@ -36,7 +36,7 @@ class TextField {
       stroke(borderColor);
       rect(x, y, w, h, 5);
       
-      fill(fgColor); textAlign(LEFT);
+      fill(0); textAlign(LEFT);
       textSize(textSize);
       text(text, x + 5, y + textSize);
       popStyle();
@@ -93,6 +93,7 @@ class TextField {
    void isPressed() {
       if (mouseOverTextField()) {
          selected = true;
+         colorselected= true;
       } else {
          selected = false;
       }

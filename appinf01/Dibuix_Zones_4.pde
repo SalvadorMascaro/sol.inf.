@@ -2,6 +2,8 @@ void dibuixaCerca(){
 cercaText.display();
 sfc.display();
 bCerca.display();
+s3.display();
+s4.display();
 }
 
 void dibuixaResultats(){

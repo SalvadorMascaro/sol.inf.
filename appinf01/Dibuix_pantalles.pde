@@ -1,7 +1,8 @@
 void dibuixaPantalla00(){
+   //dibuixaBackground();
    dibuixaFons();
    dibuixaLogin();
-   //dibuixaImatge();
+   dibuixaImatge();
 }
 void dibuixaPantalla01() {
   dibuixaZonaLogo();
@@ -12,9 +13,10 @@ void dibuixaPantalla01() {
 }
 void dibuixaPantalla02() {
   dibuixaZonaLogo();
-  dibuixabGuardar();
+  dibuixaBotons();
+
   dibuixaInserirDream();
-  
+  dibuixaTittleDream();
   dibuixaSwitch();
   dibuixaSelect();
   dibuixaCalendari();
@@ -32,6 +34,7 @@ void dibuixaPantalla03(){
 }
 
 void dibuixaPantalla04(){
+   dibuixaZonaLogo();
    dibuixaCerca();
 }
 

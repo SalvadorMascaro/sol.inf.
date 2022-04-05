@@ -42,9 +42,13 @@ color bgColor = color(255);
 
 int n = 0;
 
+int wu =1440/16;
+int hu =900/10;
 
-//color A= color();
-//color A= color();
-//color A= color();
-//color A= color();
+int textAreaWidth =900;
+
+color colorA= color(114, 186, 242);
+color colorB= color(240);
+color colorC= color(150);
+color colorD= color(250);
 //color A= color();
