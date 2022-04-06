@@ -6,7 +6,10 @@ void dibuixaPagina() {
   rect(W/2, H/2, pageWidth, pageHeight);
   fill(0);
   text("somni escrit", W/2, H/2); 
-  popStyle();bGuardar.display();
+  popStyle();
+  
+  bGuardar.display();
+
 }
 void dibuixaInserirDream(){
   fill(colorC); textSize(20); textAlign(LEFT);
@@ -17,6 +20,8 @@ void dibuixaInserirDream(){
 void dibuixaBotons(){
 bGuardar.display();
 bEliminar.display();
+
+
 
 }
 

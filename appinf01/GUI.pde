@@ -27,6 +27,7 @@ Select s1, s2, s3, s4;
 BarsDiagram s;
 SwitchFilterArray sfa, sfc;
 TextField userText, passText;
+Confirm cf;
 
 
 
@@ -42,6 +43,10 @@ String[][] inforesults = {
   {"6", "Títol 6", "10/03/2022", "Descripció 6", "S", "pesadilla", "paco@gmail.com", "Label1,Label3"}, 
   {"7", "Títol 7", "10/03/2022", "Descripció 7", "N", "pesadilla", "paco@gmail.com", "Label1,Label2,Label3"}, 
 };
+String title2 = "Confirma!";
+String message2 = "Vols canviar el color de fons?";
+
+
 
 
 boolean viewCalendar = false;
@@ -65,6 +70,7 @@ void setGUI() {
   initFilter();
   initTextFieldlogin();
   pagedResults();
+  initConfirm();
 }
 
 // Creació dels botons de la GUI
@@ -174,5 +180,5 @@ void pagedResults() {
 }
 
 void initConfirm(){
-
+cf = new Confirm(title2, message2, 100, 100, compW, compH);
 }

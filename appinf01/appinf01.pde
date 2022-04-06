@@ -101,7 +101,7 @@ void mousePressed() {
       }
     }  
     if (bEliminar.mouseOverButton() && bEliminar.enabled) {
-      c.display();;
+      cf.display();
     }
     tittleDream.isPressed();
     
