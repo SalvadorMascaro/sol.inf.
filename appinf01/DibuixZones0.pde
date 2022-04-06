@@ -1,20 +1,18 @@
 
-
-
 int Width0= 600;
 int Height0=600;
 void dibuixaFons(){
 pushStyle();
 rectMode(CENTER);
+ strokeWeight(4);
+  stroke(colorA);
 fill(200);
 rect(width/2, height/2, 3*width/6, 9*height/10);
 popStyle();
 
 
 }
-/*void dibuixaBackground(){
- background();
-}*/
+
 
 void dibuixaImatge(){
 

@@ -17,6 +17,7 @@ void dibuixaInserirDream(){
 void dibuixaBotons(){
 bGuardar.display();
 bEliminar.display();
+
 }
 
 void dibuixaCalendari(){

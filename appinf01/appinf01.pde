@@ -41,7 +41,7 @@ void draw() {
 
 
   updateCursor();
-
+//text( "x: " + mouseX + " y: " + mouseY, mouseX, mouseY );
   
 }
 
@@ -64,7 +64,7 @@ void mousePressed() {
     }
 
     if (bSRecientes.mouseOverButton() &&  bSRecientes.enabled) {
-      pantalla = Pantalla.SOMNI;
+      pantalla = Pantalla.RESULTATS;
     }
     if (bRGrafico.mouseOverButton() &&  bRGrafico.enabled) {
       pantalla = Pantalla.GRAFICS;
@@ -99,13 +99,15 @@ void mousePressed() {
       } else {
         bgColor = color(0);
       }
-    }
-    if (bDelete.mouseOverButton() && bDelete.enabled) {
-      pantalla = Pantalla.GRAFICS;
+    }  
+    if (bEliminar.mouseOverButton() && bEliminar.enabled) {
+      c.display();;
     }
     tittleDream.isPressed();
     
-  }
+  
+} 
+
 
   // CLICKS EN PANTALLA DE GRAFICOS
   if (pantalla==pantalla.GRAFICS) {
@@ -243,35 +245,3 @@ void updateColor() {
     bgColor = color(0, 0, 255);
   }
 }
-
-
-
-
-
-
-/*void keyPressed() {
- textDream.keyPressed(key, (int)keyCode);
- 
- if (key=='0') {
- pantalla = Pantalla.USUARI;
- } else if (key=='1') {
- pantalla = Pantalla.INICI;
- } else if (key=='2') {
- pantalla = Pantalla.SOMNI;
- } else if (key=='3') {
- pantalla = Pantalla.GRAFICS;
- }
- if (pantalla==pantalla.SOMNI) {
- areaText.keyPressed(key, (int)keyCode);
- if (keyCode==LEFT) {
- c.prevMonth();
- println("PREV MONTH");
- }
- // Anar un mes endavant
- else if (keyCode==RIGHT) {
- c.nextMonth();
- println("PREV MONTH");
- }
- }
- }
- */

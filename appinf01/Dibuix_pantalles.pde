@@ -3,6 +3,7 @@ void dibuixaPantalla00(){
    dibuixaFons();
    dibuixaLogin();
    dibuixaImatge();
+
 }
 void dibuixaPantalla01() {
   dibuixaZonaLogo();
@@ -39,5 +40,6 @@ void dibuixaPantalla04(){
 }
 
 void dibuixaPantalla05(){
+ dibuixaZonaLogo();
 dibuixaResultats();
 }

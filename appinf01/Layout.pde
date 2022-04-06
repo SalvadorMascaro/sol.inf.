@@ -3,7 +3,7 @@
 
 // Marges Horitzontal i Vertical
 float marginH = 20, 
-  marginV = 20;
+  marginV = 50;
 
 // Dimensions Zona Lateral
 float sidebarWidth  = 300, 
@@ -52,3 +52,5 @@ color colorB= color(240);
 color colorC= color(150);
 color colorD= color(250);
 //color A= color();
+float compW = 600;
+float compH = 340;

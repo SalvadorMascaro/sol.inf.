@@ -1,4 +1,11 @@
 void dibuixaCerca(){
+  pushStyle();
+  fill(colorC); textSize(20); textAlign(LEFT);
+ text("Buscar por palabras", width/5, height/10-5); 
+    fill(0); textSize(48); textAlign(LEFT);
+   popStyle(); 
+    
+  
 cercaText.display();
 sfc.display();
 bCerca.display();
